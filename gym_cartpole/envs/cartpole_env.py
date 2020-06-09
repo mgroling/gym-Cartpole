@@ -1,6 +1,6 @@
 import gym
 
-class CustomCartPoleEnv(gym.Env):
+class CartPoleEnv(gym.Env):
     """
     Custom version of Cartpole (from https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
     Modifications:
