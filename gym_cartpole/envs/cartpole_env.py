@@ -1,6 +1,10 @@
+import math
 import gym
+from gym import spaces, logger
+from gym.utils import seeding
+import numpy as np
 
-class CartPoleEnv(gym.Env):
+class CartpoleEnv(gym.Env):
     """
     Custom version of Cartpole (from https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
     Modifications:
