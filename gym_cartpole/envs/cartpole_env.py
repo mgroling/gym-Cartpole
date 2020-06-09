@@ -24,7 +24,7 @@ class CartpoleEnv(gym.Env):
         self.kinematics_integrator = 'euler'
 
         # Angle at which to fail the episode
-        self.theta_threshold_radians = 2*math.pi
+        self.theta_threshold_radians = 0.5*math.pi
         self.x_threshold = 2.4
 
         # Angle limit set to 2 * theta_threshold_radians so failing observation
@@ -78,10 +78,8 @@ class CartpoleEnv(gym.Env):
 
         done = bool(
             x < -self.x_threshold
-            or x > self.x_threshold
-            or theta < -self.theta_threshold_radians
-            or theta > self.theta_threshold_radians
-        )
+            or x > self.x_threshold)
+            #or theta < -self.theta_threshold_radians or theta > self.theta_threshold_radians)
 
         if not done:
             reward = 0.0
