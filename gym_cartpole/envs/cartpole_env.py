@@ -101,7 +101,7 @@ class CartpoleEnv(gym.Env):
         return np.array(self.state), reward, done, {}
     
     def reset(self):
-        self.state = self.np_random.uniform(low=-math.pi, high=math.pi, size=(4,))#self.np_random.uniform(low=-0.20, high=0.20, size=(4,))
+        self.state = self.np_random.uniform(low=-math.pi, high=math.pi)+(0,0)#self.np_random.uniform(low=-0.20, high=0.20, size=(4,))
         self.steps_beyond_done = None
         return np.array(self.state)
 
