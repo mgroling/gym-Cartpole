@@ -8,7 +8,7 @@ class CartpoleEnv(gym.Env):
     """
     Custom version of Cartpole (from https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
     Modifications:
-    -all rewards are 0
+    -reward is 1 if the pole angle is less than 12 degreees and else 0
     -it does not fail at a certain angle
     -cartpole can start with a bigger angle
     """
@@ -82,7 +82,10 @@ class CartpoleEnv(gym.Env):
             #or theta < -self.theta_threshold_radians or theta > self.theta_threshold_radians)
 
         if not done:
-            reward = 0.0
+            if abs(theta%(2*math.pi)) > self.theta_threshold_radians:
+                reward = 0.0
+            else:
+                reward = 1.0
         elif self.steps_beyond_done is None:
             # Pole just fell!
             self.steps_beyond_done = 0
