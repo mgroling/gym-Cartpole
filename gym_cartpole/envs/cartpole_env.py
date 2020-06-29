@@ -8,7 +8,7 @@ class CartpoleEnv(gym.Env):
     """
     Custom version of Cartpole (from https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
     Modifications:
-    -reward is 1 if the pole angle is less than 12 degreees and else 0
+    -reward is 1 if the pole angle is less than 45 degreees and else 0
     -it does not fail at a certain angle
     -cartpole can start with a bigger angle
     """
@@ -24,7 +24,7 @@ class CartpoleEnv(gym.Env):
         self.kinematics_integrator = 'euler'
 
         # Angle at which to fail the episode
-        self.theta_threshold_radians = 12 * 2 * math.pi / 360
+        self.theta_threshold_radians = 0.25*math.pi
         self.x_threshold = 2.4
 
         # Angle limit set to 2 * theta_threshold_radians so failing observation
