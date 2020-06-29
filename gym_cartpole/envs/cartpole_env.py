@@ -82,10 +82,10 @@ class CartpoleEnv(gym.Env):
             #or theta < -self.theta_threshold_radians or theta > self.theta_threshold_radians)
 
         if not done:
-            if abs(theta)%(2*math.pi) > self.theta_threshold_radians:
-                reward = 0.0
-            else:
+            if abs(theta)%(2*math.pi) < self.theta_threshold_radians or abs(theta)%(2*math.pi) > 2*math.pi-self.theta_threshold_radians:
                 reward = 1.0
+            else:
+                reward = 0.0
         elif self.steps_beyond_done is None:
             # Pole just fell!
             self.steps_beyond_done = 0
