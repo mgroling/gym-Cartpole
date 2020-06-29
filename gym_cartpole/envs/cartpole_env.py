@@ -82,7 +82,7 @@ class CartpoleEnv(gym.Env):
             #or theta < -self.theta_threshold_radians or theta > self.theta_threshold_radians)
 
         if not done:
-            if abs(theta%(2*math.pi)) > self.theta_threshold_radians:
+            if abs(theta)%(2*math.pi) > self.theta_threshold_radians:
                 reward = 0.0
             else:
                 reward = 1.0
