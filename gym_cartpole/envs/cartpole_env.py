@@ -74,6 +74,7 @@ class CartpoleEnv(gym.Env):
             theta_dot = theta_dot + self.tau * thetaacc
             theta = theta + self.tau * theta_dot
 
+        theta = theta % (2*np.pi)
         self.state = (x, x_dot, theta, theta_dot)
 
         done = bool(
