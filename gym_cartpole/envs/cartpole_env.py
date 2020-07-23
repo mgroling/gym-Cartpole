@@ -8,7 +8,8 @@ class CartpoleEnv(gym.Env):
     """
     Custom version of Cartpole (from https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
     Modifications:
-    -reward is 1 if the pole angle is less than 30 degreees and else 0
+    -cart starts at a random position
+    -reward is 1 if the pole angle is bigger than 330degrees and less than 30 degreees and else 0
     -it does not fail at a certain angle
     -cartpole can start with a bigger angle
     """
